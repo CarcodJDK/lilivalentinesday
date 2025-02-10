@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: pink;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(255, 182, 193, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: white;
+            font-size: 2rem;
+            text-shadow: 2px 2px 5px red;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .buttons button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        #yes {
+            background-color: red;
+            color: white;
+        }
+        #no {
+            background-color: gray;
+            color: white;
+        }
+        .buttons button:hover {
+            transform: scale(1.1);
+        }
+        .hidden {
+            display: none;
+        }
+        #animation img {
+            width: 200px;
+            margin-top: 20px;
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .buttons button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💕 Lili, do you want to be my Valentine? 💕</h1>
+        <div id="gif2">
+            <img src="0ea4a9ad33776e807fbdfb55979fdfef.gif" alt="Cute Cats">
+        </div>
+        <div class="buttons">
+            <button id="yes">Yes 💖</button>
+            <button id="no">No 😢</button>
+        </div>
+        <div id="animation" class="hidden">
+            <img src="peach-goma-love-pat-head-cheek.gif" alt="Kissing Cats">
+            <p style="color: white; font-size: 1.8rem; text-shadow: 2px 2px 5px red;">I knew you'd say yes! 💘</p>
+        </div>
+    </div>
+    <script>
+        let yesButton = document.getElementById('yes');
+        let noButton = document.getElementById('no');
+        let animation = document.getElementById('animation');
+        let gif2 = document.getElementById('gif2');
+        let size = 1;
+
+        noButton.addEventListener('click', () => {
+            size += 0.2;
+            yesButton.style.transform = `scale(${size})`;
+        });
+
+        yesButton.addEventListener('click', () => {
+            document.querySelector('.buttons').style.display = 'none';
+            animation.classList.remove('hidden');
+            gif2.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
